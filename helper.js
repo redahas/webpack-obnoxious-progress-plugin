@@ -4,10 +4,11 @@ const CFonts = require('cfonts');
 const log3dMessage = (message, options = {}) => {
   CFonts.say(message, {
     font: '3d',
-    align: 'center',
+    align: 'left',
     colors: ['yellow', 'red'],
     space: true,
   });
+  process.stdout.write('\n\n');
 }
 
 const logAsciiMessage = ({
@@ -24,7 +25,9 @@ const logAsciiMessage = ({
       }
       const asciiMessage = gradient ? gradient(data) : data;
       
+      process.stdout.write('\n\n');
       process.stdout.write(asciiMessage);
+      process.stdout.write('\n\n');
     });
   }
 };
