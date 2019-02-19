@@ -1,0 +1,14 @@
+{
+  "name": "webpack-obnoxious-progress-plugin",
+  "version": "1.0.0",
+  "description": "An unnecessarily obnoxious progress bar plugin for Webpack",
+  "main": "index.js",
+  "author": "Sean Redahan",
+  "license": "MIT",
+  "dependencies": {
+    "cfonts": "^2.4.2",
+    "chalk": "^2.4.2",
+    "node-progress-loader": "^1.0.0",
+    "webpack": "^4.29.5"
+  }
+}
