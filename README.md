@@ -23,7 +23,7 @@ module.exports = {
   entry: ...,
   output: { ... },
   plugins: [
-    new SiccProgressLoader(),
+    new ObnoxiousProgressBarPlugin(),
   ],
 };
 ```
