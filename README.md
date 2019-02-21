@@ -2,6 +2,8 @@
 
 An unnecessarily obnoxious progress bar plugin for Webpack
 
+![Obnoxious gif of obnoxious loader](https://media.giphy.com/media/1TBiVBzmmEjXWxXDpG/giphy.gif)
+
 Available on npm [here](https://www.npmjs.com/package/webpack-obnoxious-progress-plugin)
 
 ## Setup
