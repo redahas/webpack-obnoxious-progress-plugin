@@ -1,38 +1,45 @@
-const figlet = require('figlet');
 const CFonts = require('cfonts');
+const CONSTANTS = require('./constants');
 
-const log3dMessage = (message, options = {}) => {
-  CFonts.say(message, {
-    font: '3d',
-    align: 'left',
-    colors: ['yellow', 'red'],
-    space: true,
-  });
-  process.stdout.write('\n\n');
+const logHorizontalLine = (stream) => {
+  stream.write(String(`${CONSTANTS.MINUS_SIGN.repeat(stream.columns)}`));
+}
+const logCarriageReturn = (stream) => {
+  stream.write('\n\n');
 }
 
-const logAsciiMessage = ({
-  font = 'bigchief',
+const logMessage = ({
+  colors = ['system'],
+  align = 'center',
+  font = 'block',
+  space = true,
   message,
-  gradient,
 } = {}) => {
-  if (message) {
-    figlet.text(message, { font }, (err, data) => {
-      if (err) {
-        process.stdout.write('Something went wrong...');
-        console.dir(err);
-        return;
-      }
-      const asciiMessage = gradient ? gradient(data) : data;
-      
-      process.stdout.write('\n\n');
-      process.stdout.write(asciiMessage);
-      process.stdout.write('\n\n');
-    });
-  }
+  if (!message) return;
+
+  CFonts.say(message, {
+    align: 'center',
+    colors,
+    space,
+    align,
+    font,
+  });
+};
+
+const logFramedMessage = ({ stream, message, align = 'left' }) => {
+  logCarriageReturn(stream);
+  logHorizontalLine(stream);
+  logMessage({
+    font: 'chrome',
+    space: false,
+    message,
+    align,
+  });
+  logHorizontalLine(stream);
+  logCarriageReturn(stream);
 };
 
 module.exports = {
-  log3dMessage,
-  logAsciiMessage,
+  logMessage,
+  logFramedMessage,
 };
